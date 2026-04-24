@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monthly Power Sector Dashboard — 15 Countries</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --fg: #111827;
+      --muted: #6b7280;
+      --card: #f9fafb;
+      --border: #e5e7eb;
+      --accent: #1e3a8a;
+      --accent-2: #0ea5e9;
+      --warn: #b45309;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.45;
+    }
+    header {
+      padding: 24px 28px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    h1 { font-size: 20px; margin: 0 0 4px; }
+    .subtitle { color: var(--muted); font-size: 13px; }
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 28px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+      background: var(--card);
+    }
+    .toolbar label { font-size: 13px; color: var(--muted); }
+    select {
+      font-size: 14px;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: white;
+      color: var(--fg);
+      min-width: 200px;
+    }
+    .updated {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    main {
+      padding: 20px 28px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: white;
+      padding: 14px 16px;
+    }
+    .card.wide { grid-column: 1 / -1; }
+    .card h2 {
+      font-size: 14px;
+      margin: 0 0 2px;
+      color: var(--fg);
+    }
+    .card .source {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .chart-wrap { position: relative; height: 260px; }
+    .footer {
+      padding: 16px 28px 28px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .footer a { color: var(--accent); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    .empty {
+      padding: 40px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 780px) {
+      main { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Monthly Power Sector Dashboard</h1>
+    <div class="subtitle">Coal generation, wind + solar generation, and power-sector CO₂ emissions across 15 countries.</div>
+  </header>
+
+  <div class="toolbar">
+    <label for="country">Country</label>
+    <select id="country"></select>
+    <div class="updated" id="updated">Loading…</div>
+  </div>
+
+  <main id="main">
+    <section class="card wide">
+      <h2>Coal generation</h2>
+      <div class="source" id="coal-src">—</div>
+      <div class="chart-wrap"><canvas id="coal-chart"></canvas></div>
+    </section>
+    <section class="card wide">
+      <h2>Wind + solar generation</h2>
+      <div class="source" id="re-src">—</div>
+      <div class="chart-wrap"><canvas id="re-chart"></canvas></div>
+    </section>
+    <section class="card wide">
+      <h2>Power-sector CO₂ emissions</h2>
+      <div class="source" id="co2-src">—</div>
+      <div class="chart-wrap"><canvas id="co2-chart"></canvas></div>
+    </section>
+  </main>
+
+  <div class="footer">
+    Data sources:
+    <a href="https://ember-energy.org/data/" target="_blank" rel="noopener">Ember monthly electricity data</a>
+    and
+    <a href="https://climatetrace.org" target="_blank" rel="noopener">Climate TRACE</a>.
+    Data refreshed daily by a GitHub Actions workflow. Generation values are in GWh;
+    emissions in Mt CO₂. Shares are the fuel's share of total electricity generation.
+  </div>
+
+<script>
+const SOURCE_LABELS = { ember: "Ember", climate_trace: "Climate TRACE" };
+const COLOR = {
+  coalGwh: "#1e3a8a",
+  coalShare: "#6b7280",
+  reGwh: "#0ea5e9",
+  reShare: "#6b7280",
+  co2: "#b45309",
+};
+
+let coalChart, reChart, co2Chart;
+
+function fmtSource(list) {
+  if (!list || !list.length) return "no data";
+  return list.map(s => SOURCE_LABELS[s] || s).join(" + ");
+}
+
+function makeDualChart(ctx, labels, barData, barLabel, barColor, lineData, lineLabel, unitLeft, unitRight) {
+  return new Chart(ctx, {
+    data: {
+      labels,
+      datasets: [
+        {
+          type: "bar",
+          label: barLabel,
+          data: barData,
+          backgroundColor: barColor,
+          borderRadius: 2,
+          yAxisID: "yLeft",
+          order: 2,
+        },
+        {
+          type: "line",
+          label: lineLabel,
+          data: lineData,
+          borderColor: COLOR.coalShare,
+          backgroundColor: COLOR.coalShare,
+          tension: 0.25,
+          pointRadius: 2,
+          yAxisID: "yRight",
+          order: 1,
+        },
+      ],
+    },
+    options: {
+      maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      scales: {
+        yLeft:  { type: "linear", position: "left",  title: { display: true, text: unitLeft  }, beginAtZero: true },
+        yRight: { type: "linear", position: "right", title: { display: true, text: unitRight }, beginAtZero: true, grid: { drawOnChartArea: false } },
+        x: { grid: { display: false } },
+      },
+      plugins: { legend: { position: "bottom", labels: { boxWidth: 10 } } },
+    },
+  });
+}
+
+function makeLineChart(ctx, labels, data, label, color, unit) {
+  return new Chart(ctx, {
+    type: "line",
+    data: {
+      labels,
+      datasets: [{
+        label,
+        data,
+        borderColor: color,
+        backgroundColor: color + "33",
+        fill: true,
+        tension: 0.25,
+        pointRadius: 2,
+      }],
+    },
+    options: {
+      maintainAspectRatio: false,
+      scales: {
+        y: { title: { display: true, text: unit }, beginAtZero: true },
+        x: { grid: { display: false } },
+      },
+      plugins: { legend: { position: "bottom", labels: { boxWidth: 10 } } },
+    },
+  });
+}
+
+function renderCountry(country) {
+  const rows = country.rows;
+  const labels = rows.map(r => r.month);
+
+  document.getElementById("coal-src").textContent =
+    "Coal GWh: " + fmtSource(country.sources.coal) + " · Coal share: Ember";
+  document.getElementById("re-src").textContent =
+    "Wind + solar: " + (country.sources.renewables.length ? "Ember" : "no data");
+  document.getElementById("co2-src").textContent =
+    "CO₂: " + fmtSource(country.sources.co2);
+
+  if (coalChart) coalChart.destroy();
+  if (reChart) reChart.destroy();
+  if (co2Chart) co2Chart.destroy();
+
+  coalChart = makeDualChart(
+    document.getElementById("coal-chart"),
+    labels,
+    rows.map(r => r.coal_gwh),
+    "Coal generation (GWh)",
+    COLOR.coalGwh,
+    rows.map(r => r.coal_share_pct),
+    "Coal share of generation (%)",
+    "GWh", "%"
+  );
+
+  reChart = makeDualChart(
+    document.getElementById("re-chart"),
+    labels,
+    rows.map(r => r.renewables_gwh),
+    "Wind + solar (GWh)",
+    COLOR.reGwh,
+    rows.map(r => r.renewables_share_pct),
+    "Wind + solar share (%)",
+    "GWh", "%"
+  );
+
+  co2Chart = makeLineChart(
+    document.getElementById("co2-chart"),
+    labels,
+    rows.map(r => r.co2_mt),
+    "Power-sector CO₂ (Mt)",
+    COLOR.co2,
+    "Mt CO₂"
+  );
+}
+
+async function load() {
+  let payload;
+  try {
+    const resp = await fetch("data/dashboard.json", { cache: "no-store" });
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    payload = await resp.json();
+  } catch (e) {
+    document.getElementById("updated").textContent = "Data not yet generated.";
+    document.getElementById("main").innerHTML =
+      '<div class="card wide"><div class="empty">' +
+      'No data file found at <code>data/dashboard.json</code>. ' +
+      'Run the fetch scripts locally or wait for the first GitHub Actions run.' +
+      '</div></div>';
+    return;
+  }
+
+  const select = document.getElementById("country");
+  const entries = Object.entries(payload.countries)
+    .sort((a, b) => a[1].name.localeCompare(b[1].name));
+  for (const [iso3, c] of entries) {
+    const opt = document.createElement("option");
+    opt.value = iso3;
+    opt.textContent = c.name;
+    select.appendChild(opt);
+  }
+
+  document.getElementById("updated").textContent =
+    "Updated " + (payload.updated_at || "unknown");
+
+  function pick() {
+    const c = payload.countries[select.value];
+    if (c) renderCountry(c);
+  }
+  select.addEventListener("change", pick);
+  pick();
+}
+
+load();
+</script>
+</body>
+</html>

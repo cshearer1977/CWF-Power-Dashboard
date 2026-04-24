@@ -1,0 +1,142 @@
+{
+  "updated_at": "2026-04-24T18:23:48Z",
+  "ember_fetched_at": null,
+  "climate_trace_fetched_at": null,
+  "countries": {
+    "ZAF": {
+      "name": "South Africa",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "KEN": {
+      "name": "Kenya",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "MEX": {
+      "name": "Mexico",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "BRA": {
+      "name": "Brazil",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "IDN": {
+      "name": "Indonesia",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "VNM": {
+      "name": "Vietnam",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "NGA": {
+      "name": "Nigeria",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "ETH": {
+      "name": "Ethiopia",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "TZA": {
+      "name": "Tanzania",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "SEN": {
+      "name": "Senegal",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "GHA": {
+      "name": "Ghana",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "PHL": {
+      "name": "Philippines",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "PAK": {
+      "name": "Pakistan",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "THA": {
+      "name": "Thailand",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    },
+    "COL": {
+      "name": "Colombia",
+      "rows": [],
+      "sources": {
+        "coal": [],
+        "renewables": [],
+        "co2": []
+      }
+    }
+  }
+}
