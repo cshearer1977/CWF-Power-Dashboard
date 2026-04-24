@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Monthly Power Sector Dashboard — 15 Countries</title>
+  <title>CWF Monthly Power Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js"></script>
   <style>
     :root {
@@ -13,9 +13,15 @@
       --muted: #6b7280;
       --card: #f9fafb;
       --border: #e5e7eb;
-      --accent: #1e3a8a;
-      --accent-2: #0ea5e9;
-      --warn: #b45309;
+      /* GEM palette */
+      --gem-teal:   #016b83;
+      --gem-orange: #fe4f2d;
+      --gem-blue:   #4a57a8;
+      --gem-wine:   #7f142a;
+      --gem-green:  #65bd8b;
+      --accent:   var(--gem-teal);
+      --accent-2: var(--gem-orange);
+      --warn:     var(--gem-orange);
     }
     * { box-sizing: border-box; }
     body {
@@ -29,7 +35,7 @@
       padding: 24px 28px 12px;
       border-bottom: 1px solid var(--border);
     }
-    h1 { font-size: 20px; margin: 0 0 4px; }
+    h1 { font-size: 20px; margin: 0 0 4px; color: var(--gem-teal); }
     .subtitle { color: var(--muted); font-size: 13px; }
     .toolbar {
       display: flex;
@@ -100,7 +106,7 @@
 </head>
 <body>
   <header>
-    <h1>Monthly Power Sector Dashboard</h1>
+    <h1>CWF Monthly Power Dashboard</h1>
     <div class="subtitle">Coal generation, wind + solar generation, and power-sector CO₂ emissions across 15 countries.</div>
   </header>
 
@@ -139,12 +145,13 @@
 
 <script>
 const SOURCE_LABELS = { ember: "Ember", climate_trace: "Climate TRACE" };
+// GEM palette — assigned per chart for clarity
 const COLOR = {
-  coalGwh: "#1e3a8a",
-  coalShare: "#6b7280",
-  reGwh: "#0ea5e9",
-  reShare: "#6b7280",
-  co2: "#b45309",
+  coalGwh:   "#7f142a",  // wine
+  coalShare: "#4a57a8",  // blue-purple
+  reGwh:     "#65bd8b",  // green
+  reShare:   "#016b83",  // teal
+  co2:       "#fe4f2d",  // orange-red
 };
 
 let coalChart, reChart, co2Chart;
@@ -154,7 +161,7 @@ function fmtSource(list) {
   return list.map(s => SOURCE_LABELS[s] || s).join(" + ");
 }
 
-function makeDualChart(ctx, labels, barData, barLabel, barColor, lineData, lineLabel, unitLeft, unitRight) {
+function makeDualChart(ctx, labels, barData, barLabel, barColor, lineData, lineLabel, lineColor, unitLeft, unitRight) {
   return new Chart(ctx, {
     data: {
       labels,
@@ -172,8 +179,8 @@ function makeDualChart(ctx, labels, barData, barLabel, barColor, lineData, lineL
           type: "line",
           label: lineLabel,
           data: lineData,
-          borderColor: COLOR.coalShare,
-          backgroundColor: COLOR.coalShare,
+          borderColor: lineColor,
+          backgroundColor: lineColor,
           tension: 0.25,
           pointRadius: 2,
           yAxisID: "yRight",
@@ -243,6 +250,7 @@ function renderCountry(country) {
     COLOR.coalGwh,
     rows.map(r => r.coal_share_pct),
     "Coal share of generation (%)",
+    COLOR.coalShare,
     "GWh", "%"
   );
 
@@ -254,6 +262,7 @@ function renderCountry(country) {
     COLOR.reGwh,
     rows.map(r => r.renewables_share_pct),
     "Wind + solar share (%)",
+    COLOR.reShare,
     "GWh", "%"
   );
 
