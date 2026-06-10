@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-06-09T10:04:45Z",
-  "ember_fetched_at": "2026-06-09T10:01:57Z",
-  "climate_trace_fetched_at": "2026-06-09T10:04:45Z",
+  "updated_at": "2026-06-10T10:34:04Z",
+  "ember_fetched_at": "2026-06-10T10:31:18Z",
+  "climate_trace_fetched_at": "2026-06-10T10:34:04Z",
   "countries": {
     "ZAF": {
       "name": "South Africa",
@@ -495,8 +495,8 @@
           "coal_gwh_source": "ember",
           "renewables_share_pct": 12.88,
           "renewables_gwh": 3850.0,
-          "co2_mt": null,
-          "co2_source": null
+          "co2_mt": 14.12,
+          "co2_source": "ember"
         }
       ],
       "sources": {
@@ -507,7 +507,8 @@
           "ember"
         ],
         "co2": [
-          "climate_trace"
+          "climate_trace",
+          "ember"
         ]
       }
     },
@@ -671,8 +672,8 @@
           "coal_gwh_source": "ember",
           "renewables_share_pct": 24.31,
           "renewables_gwh": 15170.0,
-          "co2_mt": null,
-          "co2_source": null
+          "co2_mt": 3.27,
+          "co2_source": "ember"
         }
       ],
       "sources": {
@@ -683,7 +684,8 @@
           "ember"
         ],
         "co2": [
-          "climate_trace"
+          "climate_trace",
+          "ember"
         ]
       }
     },
@@ -1178,8 +1180,8 @@
           "coal_gwh_source": null,
           "renewables_share_pct": null,
           "renewables_gwh": null,
-          "co2_mt": null,
-          "co2_source": null
+          "co2_mt": 1.05,
+          "co2_source": "ember"
         }
       ],
       "sources": {
@@ -1188,7 +1190,8 @@
         ],
         "renewables": [],
         "co2": [
-          "climate_trace"
+          "climate_trace",
+          "ember"
         ]
       }
     },
