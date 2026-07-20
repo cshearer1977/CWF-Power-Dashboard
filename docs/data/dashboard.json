@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-19T08:35:14Z",
-  "ember_fetched_at": "2026-07-19T08:32:02Z",
-  "climate_trace_fetched_at": "2026-07-19T08:35:14Z",
+  "updated_at": "2026-07-20T09:35:44Z",
+  "ember_fetched_at": "2026-07-20T09:32:42Z",
+  "climate_trace_fetched_at": "2026-07-20T09:35:44Z",
   "countries": {
     "ZAF": {
       "name": "South Africa",
@@ -138,45 +138,55 @@
         },
         {
           "month": "2026-02",
-          "coal_share_pct": 74.7,
-          "coal_gwh": 12550.0,
+          "coal_share_pct": 74.78,
+          "coal_gwh": 12600.0,
           "coal_gwh_source": "ember",
-          "renewables_share_pct": 15.48,
+          "renewables_share_pct": 15.43,
           "renewables_gwh": 2600.0,
           "co2_mt": 17.971024799347003,
           "co2_source": "climate_trace"
         },
         {
           "month": "2026-03",
-          "coal_share_pct": 75.71,
-          "coal_gwh": 13650.0,
+          "coal_share_pct": 75.83,
+          "coal_gwh": 13740.0,
           "coal_gwh_source": "ember",
-          "renewables_share_pct": 13.53,
+          "renewables_share_pct": 13.47,
           "renewables_gwh": 2440.0,
           "co2_mt": 19.546707833441,
           "co2_source": "climate_trace"
         },
         {
           "month": "2026-04",
-          "coal_share_pct": null,
-          "coal_gwh": 16574.35,
-          "coal_gwh_source": "climate_trace",
-          "renewables_share_pct": null,
-          "renewables_gwh": null,
+          "coal_share_pct": 79.68,
+          "coal_gwh": 13650.0,
+          "coal_gwh_source": "ember",
+          "renewables_share_pct": 12.73,
+          "renewables_gwh": 2180.0,
           "co2_mt": 18.211543853369,
           "co2_source": "climate_trace"
+        },
+        {
+          "month": "2026-05",
+          "coal_share_pct": 84.93,
+          "coal_gwh": 15780.0,
+          "coal_gwh_source": "ember",
+          "renewables_share_pct": 9.58,
+          "renewables_gwh": 1780.0,
+          "co2_mt": 13.42,
+          "co2_source": "ember"
         }
       ],
       "sources": {
         "coal": [
-          "climate_trace",
           "ember"
         ],
         "renewables": [
           "ember"
         ],
         "co2": [
-          "climate_trace"
+          "climate_trace",
+          "ember"
         ]
       }
     },
