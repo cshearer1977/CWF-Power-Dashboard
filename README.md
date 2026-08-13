@@ -1,5 +1,7 @@
 # Monthly Power Sector Dashboard — 15 Countries
 
+https://cshearer1977.github.io/CWF-Power-Dashboard/
+
 A static dashboard that tracks three monthly indicators for 15 countries
 (South Africa, Kenya, Mexico, Brazil, Indonesia, Vietnam, Nigeria, Ethiopia,
 Tanzania, Senegal, Ghana, Philippines, Pakistan, Thailand, Colombia):
