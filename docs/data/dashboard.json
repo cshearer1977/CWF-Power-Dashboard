@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-08T11:19:18Z",
-  "ember_fetched_at": "2026-09-08T11:16:38Z",
-  "climate_trace_fetched_at": "2026-09-08T11:19:18Z",
+  "updated_at": "2026-09-09T11:24:03Z",
+  "ember_fetched_at": "2026-09-09T11:21:13Z",
+  "climate_trace_fetched_at": "2026-09-09T11:24:03Z",
   "countries": {
     "ZAF": {
       "name": "South Africa",
@@ -374,11 +374,11 @@
         },
         {
           "month": "2026-06",
-          "coal_share_pct": null,
-          "coal_gwh": null,
-          "coal_gwh_source": null,
-          "renewables_share_pct": null,
-          "renewables_gwh": null,
+          "coal_share_pct": 0.0,
+          "coal_gwh": 0.0,
+          "coal_gwh_source": "ember",
+          "renewables_share_pct": 18.8,
+          "renewables_gwh": 220.0,
           "co2_mt": 0.10154548054460197,
           "co2_source": "climate_trace"
         }
@@ -577,6 +577,16 @@
           "renewables_gwh": 3380.0,
           "co2_mt": 13.178937149574502,
           "co2_source": "climate_trace"
+        },
+        {
+          "month": "2026-07",
+          "coal_share_pct": 6.41,
+          "coal_gwh": 2260.0,
+          "coal_gwh_source": "ember",
+          "renewables_share_pct": 12.36,
+          "renewables_gwh": 4360.0,
+          "co2_mt": 17.14,
+          "co2_source": "ember"
         }
       ],
       "sources": {
@@ -587,7 +597,8 @@
           "ember"
         ],
         "co2": [
-          "climate_trace"
+          "climate_trace",
+          "ember"
         ]
       }
     },
@@ -2703,11 +2714,11 @@
         },
         {
           "month": "2026-05",
-          "coal_share_pct": null,
-          "coal_gwh": 3383.37,
-          "coal_gwh_source": "climate_trace",
-          "renewables_share_pct": null,
-          "renewables_gwh": null,
+          "coal_share_pct": 12.27,
+          "coal_gwh": 2240.0,
+          "coal_gwh_source": "ember",
+          "renewables_share_pct": 6.8,
+          "renewables_gwh": 1240.0,
           "co2_mt": 8.935399,
           "co2_source": "climate_trace"
         },
