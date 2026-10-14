@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-13T14:11:27Z",
-  "ember_fetched_at": "2026-10-13T14:08:46Z",
-  "climate_trace_fetched_at": "2026-10-13T14:11:27Z",
+  "updated_at": "2026-10-14T11:52:48Z",
+  "ember_fetched_at": "2026-10-14T11:48:57Z",
+  "climate_trace_fetched_at": "2026-10-14T11:52:48Z",
   "countries": {
     "ZAF": {
       "name": "South Africa",
@@ -1146,7 +1146,7 @@
         {
           "month": "2025-11",
           "coal_share_pct": null,
-          "coal_gwh": 11540.89,
+          "coal_gwh": 9688.89,
           "coal_gwh_source": "climate_trace",
           "renewables_share_pct": null,
           "renewables_gwh": null,
@@ -1156,7 +1156,7 @@
         {
           "month": "2025-12",
           "coal_share_pct": null,
-          "coal_gwh": 11158.29,
+          "coal_gwh": 9375.78,
           "coal_gwh_source": "climate_trace",
           "renewables_share_pct": null,
           "renewables_gwh": null,
