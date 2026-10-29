@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-28T12:55:11Z",
-  "ember_fetched_at": "2026-10-28T12:51:02Z",
-  "climate_trace_fetched_at": "2026-10-28T12:55:11Z",
+  "updated_at": "2026-10-29T13:00:31Z",
+  "ember_fetched_at": "2026-10-29T12:57:44Z",
+  "climate_trace_fetched_at": "2026-10-29T13:00:31Z",
   "countries": {
     "ZAF": {
       "name": "South Africa",
@@ -203,8 +203,8 @@
           "coal_gwh_source": "ember",
           "renewables_share_pct": 12.09,
           "renewables_gwh": 2280.0,
-          "co2_mt": 13.56,
-          "co2_source": "ember"
+          "co2_mt": 20.003454356109,
+          "co2_source": "climate_trace"
         }
       ],
       "sources": {
@@ -215,8 +215,7 @@
           "ember"
         ],
         "co2": [
-          "climate_trace",
-          "ember"
+          "climate_trace"
         ]
       }
     },
@@ -411,6 +410,16 @@
           "renewables_share_pct": 18.49,
           "renewables_gwh": 230.0,
           "co2_mt": 0.10491538384033397,
+          "co2_source": "climate_trace"
+        },
+        {
+          "month": "2026-08",
+          "coal_share_pct": null,
+          "coal_gwh": null,
+          "coal_gwh_source": null,
+          "renewables_share_pct": null,
+          "renewables_gwh": null,
+          "co2_mt": 0.10496754715634199,
           "co2_source": "climate_trace"
         }
       ],
@@ -624,8 +633,8 @@
           "coal_gwh_source": "ember",
           "renewables_share_pct": 12.19,
           "renewables_gwh": 4380.0,
-          "co2_mt": 18.07,
-          "co2_source": "ember"
+          "co2_mt": 13.874594815961302,
+          "co2_source": "climate_trace"
         },
         {
           "month": "2026-09",
@@ -843,10 +852,21 @@
           "renewables_gwh": 19520.0,
           "co2_mt": 3.145137,
           "co2_source": "climate_trace"
+        },
+        {
+          "month": "2026-08",
+          "coal_share_pct": null,
+          "coal_gwh": 1098.536,
+          "coal_gwh_source": "climate_trace",
+          "renewables_share_pct": null,
+          "renewables_gwh": null,
+          "co2_mt": 4.71284882424255,
+          "co2_source": "climate_trace"
         }
       ],
       "sources": {
         "coal": [
+          "climate_trace",
           "ember"
         ],
         "renewables": [
@@ -1048,6 +1068,16 @@
           "renewables_share_pct": null,
           "renewables_gwh": null,
           "co2_mt": 29.986097692577744,
+          "co2_source": "climate_trace"
+        },
+        {
+          "month": "2026-08",
+          "coal_share_pct": null,
+          "coal_gwh": 20949.798600000002,
+          "coal_gwh_source": "climate_trace",
+          "renewables_share_pct": null,
+          "renewables_gwh": null,
+          "co2_mt": 30.748306310692143,
           "co2_source": "climate_trace"
         }
       ],
@@ -1261,8 +1291,8 @@
           "coal_gwh_source": "ember",
           "renewables_share_pct": 17.1,
           "renewables_gwh": 5300.0,
-          "co2_mt": 12.18,
-          "co2_source": "ember"
+          "co2_mt": 18.400220648240474,
+          "co2_source": "climate_trace"
         },
         {
           "month": "2026-09",
@@ -1484,12 +1514,12 @@
         {
           "month": "2026-08",
           "coal_share_pct": null,
-          "coal_gwh": null,
-          "coal_gwh_source": null,
+          "coal_gwh": 2.083,
+          "coal_gwh_source": "climate_trace",
           "renewables_share_pct": null,
           "renewables_gwh": null,
-          "co2_mt": 1.23,
-          "co2_source": "ember"
+          "co2_mt": 1.660214,
+          "co2_source": "climate_trace"
         }
       ],
       "sources": {
@@ -1498,8 +1528,7 @@
         ],
         "renewables": [],
         "co2": [
-          "climate_trace",
-          "ember"
+          "climate_trace"
         ]
       }
     },
@@ -1694,6 +1723,16 @@
           "renewables_share_pct": null,
           "renewables_gwh": null,
           "co2_mt": 0.00018883958921204,
+          "co2_source": "climate_trace"
+        },
+        {
+          "month": "2026-08",
+          "coal_share_pct": null,
+          "coal_gwh": null,
+          "coal_gwh_source": null,
+          "renewables_share_pct": null,
+          "renewables_gwh": null,
+          "co2_mt": 0.000191443462392244,
           "co2_source": "climate_trace"
         }
       ],
@@ -1896,6 +1935,16 @@
           "renewables_share_pct": null,
           "renewables_gwh": null,
           "co2_mt": 0.38682,
+          "co2_source": "climate_trace"
+        },
+        {
+          "month": "2026-08",
+          "coal_share_pct": null,
+          "coal_gwh": 0.0,
+          "coal_gwh_source": "climate_trace",
+          "renewables_share_pct": null,
+          "renewables_gwh": null,
+          "co2_mt": 0.386498,
           "co2_source": "climate_trace"
         }
       ],
@@ -2101,6 +2150,16 @@
           "renewables_gwh": null,
           "co2_mt": 0.525524,
           "co2_source": "climate_trace"
+        },
+        {
+          "month": "2026-08",
+          "coal_share_pct": null,
+          "coal_gwh": 37.931,
+          "coal_gwh_source": "climate_trace",
+          "renewables_share_pct": null,
+          "renewables_gwh": null,
+          "co2_mt": 0.530724,
+          "co2_source": "climate_trace"
         }
       ],
       "sources": {
@@ -2304,6 +2363,16 @@
           "renewables_share_pct": null,
           "renewables_gwh": null,
           "co2_mt": 0.657679,
+          "co2_source": "climate_trace"
+        },
+        {
+          "month": "2026-08",
+          "coal_share_pct": null,
+          "coal_gwh": null,
+          "coal_gwh_source": null,
+          "renewables_share_pct": null,
+          "renewables_gwh": null,
+          "co2_mt": 0.642274,
           "co2_source": "climate_trace"
         }
       ],
@@ -2515,8 +2584,8 @@
           "coal_gwh_source": "ember",
           "renewables_share_pct": 5.91,
           "renewables_gwh": 550.0,
-          "co2_mt": 5.52,
-          "co2_source": "ember"
+          "co2_mt": 8.253769179307325,
+          "co2_source": "climate_trace"
         },
         {
           "month": "2026-09",
@@ -2734,6 +2803,16 @@
           "renewables_gwh": null,
           "co2_mt": 6.26832,
           "co2_source": "climate_trace"
+        },
+        {
+          "month": "2026-08",
+          "coal_share_pct": null,
+          "coal_gwh": 2774.78,
+          "coal_gwh_source": "climate_trace",
+          "renewables_share_pct": null,
+          "renewables_gwh": null,
+          "co2_mt": 5.932153,
+          "co2_source": "climate_trace"
         }
       ],
       "sources": {
@@ -2941,6 +3020,16 @@
           "renewables_gwh": null,
           "co2_mt": 7.685123,
           "co2_source": "climate_trace"
+        },
+        {
+          "month": "2026-08",
+          "coal_share_pct": null,
+          "coal_gwh": 3045.52,
+          "coal_gwh_source": "climate_trace",
+          "renewables_share_pct": null,
+          "renewables_gwh": null,
+          "co2_mt": 8.041192,
+          "co2_source": "climate_trace"
         }
       ],
       "sources": {
@@ -3147,6 +3236,16 @@
           "renewables_share_pct": null,
           "renewables_gwh": null,
           "co2_mt": 1.519862,
+          "co2_source": "climate_trace"
+        },
+        {
+          "month": "2026-08",
+          "coal_share_pct": null,
+          "coal_gwh": 666.04,
+          "coal_gwh_source": "climate_trace",
+          "renewables_share_pct": null,
+          "renewables_gwh": null,
+          "co2_mt": 1.408256,
           "co2_source": "climate_trace"
         }
       ],
